@@ -256,7 +256,7 @@ legenda.onAdd = function (map) {
 };
 legenda.addTo(mapa);
 
-function createPropSymbols(timestamps, data) {
+function createPropSymbols(timestamps, data){
 
 			cities = L.geoJson(data, {		
 
@@ -275,8 +275,7 @@ function createPropSymbols(timestamps, data) {
 
 			updatePropSymbols(timestamps[0]);
 }
-
-function updatePropSymbols(timestamp) {
+function updatePropSymbols(timestamp){
 
 	cities.eachLayer(function(layer) {  
 		
@@ -302,8 +301,7 @@ function updatePropSymbols(timestamp) {
 		});  
 
 	});
-} 
-
+}
 function procesar_datos_reporte(data){
 
 	var timestamps = [],	
@@ -344,12 +342,10 @@ function procesar_datos_reporte(data){
 		max : max
 	}
 }
-
 function calcPropRadius(attributeValue){
 	var scaleFactor = 20,  area = attributeValue * scaleFactor; 
 		return Math.sqrt(area/Math.PI)*2;				
 }
-
 function crear_reporte_leyenda(min, max){
 	if (min < 10) {	
 		min = 10; 
@@ -407,12 +403,12 @@ function crear_reporte_leyenda(min, max){
 
 	legenda_reporte.addTo(mapa);  
 }
-
-function createSliderUI(timestamps) {
+function createSliderUI(timestamps){
 
 	sliderControl = L.control({position:'bottomcenter'});
 	sliderControl.onAdd = function(map) {
 		slider = L.DomUtil.create("input", "range-slider");
+
 		L.DomEvent.addListener(slider, 'mousedown', function(e) {L.DomEvent.stopPropagation(e);});
 		$(slider)
 			.attr({'type':'range', 'max': timestamps[timestamps.length-1], 'min':timestamps[0], 'step': 1,'value': String(timestamps[0])})
@@ -425,8 +421,9 @@ function createSliderUI(timestamps) {
 
 	sliderControl.addTo(mapa);
 	createTemporalLegend(timestamps[0]);
+	$(slider).draggable();
 }
-function createTemporalLegend(startTimestamp) {
+function createTemporalLegend(startTimestamp){
 	temporalLegend = L.control({ position: 'bottomcenter' });
 	temporalLegend.onAdd = function(map) {
 		var output = L.DomUtil.create("output", "temporal-legenda");
@@ -435,7 +432,6 @@ function createTemporalLegend(startTimestamp) {
 	temporalLegend.addTo(mapa);  
 	$(".temporal-legenda").text(startTimestamp); 
 }
-
 function actualizar_leyenda(){
 	var labels = [];
 	labels.push(colores.dffs.join('<br>'));
