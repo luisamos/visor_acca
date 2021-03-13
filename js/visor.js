@@ -481,7 +481,13 @@ mapa.on('overlayremove', function(e){
 
 function activar_reporte(radio)
 {
-	if(radio.value == 0)
+	if (radio.value == '1')
+	{
+		createPropSymbols(datos_reporte.timestamps, datos);  
+		crear_reporte_leyenda(datos_reporte.min,datos_reporte.max);	
+		createSliderUI(datos_reporte.timestamps);		
+	}
+	else
 	{
 		mapa.removeControl(legenda_reporte);
 		//mapa.removeControl(sliderControl);
@@ -489,11 +495,5 @@ function activar_reporte(radio)
 		mapa.removeControl(temporalLegend);
 		mapa.removeLayer(cities);
 		
-	}
-	else if (radio.value == '1')
-	{
-		createPropSymbols(datos_reporte.timestamps, datos);  
-		crear_reporte_leyenda(datos_reporte.min,datos_reporte.max);	
-		createSliderUI(datos_reporte.timestamps);		
-	}      
+	}     
 }
