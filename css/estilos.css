@@ -1,0 +1,111 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+html, body, #map {
+    height: 100%;
+    font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.info { padding: 6px 8px; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } 
+.info h4 { margin: 0 0 5px; color: #777; }
+.legend { text-align: left; line-height: 18px; color: #555; 
+	display: block;
+	width: 250px;
+	height: 200px;
+	float: left;			
+	font-size: 90%;			
+	overflow-y:scroll;
+    -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
+	-webkit-overflow-scrolling: auto; /* Stops scrolling immediately */			
+} 
+.legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.9; }
+.label {font-weight: 700;text-transform: uppercase;text-align: center;margin-top: -1em;color: #fff}
+.label div {position: relative;left: -50%}
+
+h2 {
+	font-size: 1.1em;
+	margin-top: 2px;
+}
+
+h2,div, span {
+	/* make text unselectable */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+}
+
+#reportes-wrapper {
+	position: absolute;
+	top: 10px;
+	left: 50px;
+	z-index: 400;
+	background: white;
+	padding: 10px;
+}
+
+#reportes {
+	margin-bottom: 5px;
+}
+
+.legenda, .temporal-legenda {
+    padding: 6px 10px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+#legendaTitle {
+    text-align: center;
+    margin-bottom: 8px;
+    font-variant: small-caps;
+}
+.symbolsContainer {
+    float: left;
+	margin-left: 50px;
+}
+.legendaCircle {
+     border-radius:50%; 
+     border: 1px solid #537898; 
+     background: rgba(113, 133, 152, .6);
+     margin: 4px auto 0;
+	 display: inline-block;
+}
+.legendaValue {
+    position: absolute;
+    right: 8px;
+}
+.range-slider {
+    width: 250px;
+}
+.temporal-legenda {
+    font-size: 1.2em;
+    text-align: center;		    
+}
+
+.leaflet-center {
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.leaflet-middle {
+    top: 50%;
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+  transform: translate(0%, -50%);
+
+}
+
+.leaflet-center.leaflet-middle {
+  transform: translate(-50%, -50%);
+}
